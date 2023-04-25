@@ -4,7 +4,7 @@ provider "aws" {
   region     = "us-east-1"
 }
 
-data "dvwa_file" "dvwa_script" {
+data "template_file" "install_script" {
   template = "${file("dvwa.sh")}"
 }
 
@@ -47,7 +47,7 @@ resource "aws_instance" "dvwa" {
   
   
   # Configure the user data to install DVWA on the instance
-  user_data = "${data.dvwa_file.dvwa_script.rendered}"
+  user_data = "${data.template_file.install_script.rendered}"
 
   tags = {
     Name = "DVWA Instance"
