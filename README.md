@@ -12,7 +12,7 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 # Pre-requisites
 Terraform installed and in the current $PATH
 
-Create your AWS keys https://www.youtube.com/watch?v=HuE-QhrmE1c
+`Create your AWS keys:` https://www.youtube.com/watch?v=HuE-QhrmE1c
 
 Update the vulnlab.tf file with your AWS keys. 
 
