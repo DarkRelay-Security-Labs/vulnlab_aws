@@ -12,6 +12,11 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 # Pre-requisites
 Terraform installed and in the current $PATH
 
+Update the vulnlab.tf file with your AWS keys.
+
+`access_key = "ADD YOUR KEY HERE"`
+`secret_key = "ADD YOUR KEY HERE"`
+
 # Execution
 Copy the scripts to the home folder on your Linux distro and run the below commands to deploy or destroy the AWS services created.
 
