@@ -1,6 +1,11 @@
 # Vulnerable lab on AWS
-Terraform script to deploy vulnerable targets on AWS.
+Terraform script to deploy vulnerable targets on AWS. The script deploys the below containers in the AWS.
 
+`Juice-shop: https://hub.docker.com/r/bkimminich/juice-shop`
+`DVWA: https://hub.docker.com/r/vulnerables/web-dvwa`
+`XVWA: https://hub.docker.com/r/bitnetsecdave/xvwa`
+`Pentest in Docker: https://github.com/Swordfish-Security/Pentest-In-Docker`
+ 
 # Pre-requisites
 Terraform installed and in the current $PATH
 
