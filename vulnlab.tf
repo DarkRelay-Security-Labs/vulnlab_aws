@@ -1,20 +1,42 @@
 provider "aws" {
-  access_key = "IAMACCESSKEY"
-  secret_key = "IAMSECRETKEY"
+  access_key = "IAMAKEY"
+  secret_key = "IAMASECRETKEY"
   region     = "us-east-1"
 }
 
+
 data "template_file" "install_script" {
-  template = "${file("dvwa.sh")}"
+  template = "${file("vulnlab.sh")}"
 }
 
-resource "aws_security_group" "dvwa_sg" {
-  name_prefix = "dvwa_sg"
-  description = "Security group for DVWA instance"
-
+resource "aws_security_group" "vulnlab_sg" {
+  name_prefix = "vulnlab_sg"
+  description = "Security group for the vulnlab instance"
+      
   ingress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    from_port   = 81
+    to_port     = 81
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    from_port   = 82
+    to_port     = 82
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    from_port   = 83
+    to_port     = 83
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -34,23 +56,22 @@ resource "aws_security_group" "dvwa_sg" {
   }
 
   tags = {
-    Name = "dvwa_sg"
+    Name = "vulnlab_sg"
   }
 }
-
-resource "aws_instance" "dvwa" {
+  
+  resource "aws_instance" "vulndocker" {
   ami           = "ami-007855ac798b5175e" # Specify the AMI ID for your desired Ubuntu version.
   instance_type = "t2.micro"             # Specify the instance type.
   key_name      = "dvwa_key"        # Specify the name of the key pair you want to use to connect to the instance.
 
-  vpc_security_group_ids = [aws_security_group.dvwa_sg.id]
+  vpc_security_group_ids = [aws_security_group.vulnlab_sg.id]
   
   
-  # Configure the user data to install DVWA on the instance
+  # Configure the user data to install vulnlab on the instance
   user_data = "${data.template_file.install_script.rendered}"
 
   tags = {
-    Name = "DVWA Instance"
+    Name = "vulndocker"
   }
-
 }
