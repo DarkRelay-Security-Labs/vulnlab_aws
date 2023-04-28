@@ -12,6 +12,11 @@ data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
 
+resource "aws_key_pair" "vulnlab" {
+  key_name   = "vulnlab"
+  public_key = file("~/.ssh/vulnlab.pub")
+}
+
 resource "aws_security_group" "vulnlab_sg" {
   name_prefix = "vulnlab_sg"
   description = "Security group for the vulnlab instance"
