@@ -42,6 +42,10 @@ Copy the scripts to the home folder on your Linux distro and run the below comma
 `terraform destroy --auto-approve`
 
 # About the Terraform Script
-Configures ingress rules for ports 22,80,81,82 and 83 to allow SSH and HTTP.
+Configures on EC2 micro instance to host containers.
+
+Configures ingress rules for ports 80,81,82,83,85 and 85 to allow traffic from your IP only.
+
+Configures ingress rules for port 22 to allow traffic from any IP.
 
 Configures egress rule for all traffic outbound connections.
