@@ -32,7 +32,10 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 `ssh-keygen -q -t rsa -N '' -f ~/.ssh/vulnlab <<<y >/dev/null 2>&1`
 
 # Execution
-Copy the scripts to the home folder on your Linux distro and run the below commands to deploy or destroy the AWS services created.
+
+## Download
+`git clone https://github.com/DarkRelayLabs/vulnlab_aws.git`
+`cd vulnlab_aws`
 
 ## Initialize
 `terraform init`
