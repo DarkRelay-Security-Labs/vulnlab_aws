@@ -14,15 +14,20 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 `Vulnerable API:` https://github.com/erev0s/VAmPI
  
 # Pre-requisites
-Terraform installed and in the current $PATH
+
+## Terraform installed and in the current $PATH
 
 `Create your AWS keys:` https://www.youtube.com/watch?v=HuE-QhrmE1c
 
-Update the vulnlab.tf file with your AWS keys. 
+## Update the vulnlab.tf file with your AWS keys. 
 
 `access_key = "ADD YOUR KEY HERE"`
 
 `secret_key = "ADD YOUR KEY HERE"`
+
+## Create key pairs with name dvwa_key
+
+`Create EC2 Key Pair:` https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#having-ec2-create-your-key-pair
 
 # Execution
 Copy the scripts to the home folder on your Linux distro and run the below commands to deploy or destroy the AWS services created.
