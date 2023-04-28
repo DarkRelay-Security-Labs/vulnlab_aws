@@ -43,7 +43,7 @@ Terraform script to deploy below vulnerable container targets on AWS.
 `terraform apply --auto-approve`
 
 ## Start Pentesting
-On your browser navigate to the http://<EC2_Public_IP> to start the tests.
+On your browser navigate to http://<EC2_Public_IP> to start the tests.
 
 ## Destroy Vulnlab
 `terraform destroy --auto-approve`
