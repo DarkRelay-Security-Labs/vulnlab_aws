@@ -1,5 +1,5 @@
 # Vulnerable lab on AWS
-Terraform script to deploy vulnerable targets on AWS. The script deploys the below containers in the AWS.
+Terraform script to deploy below vulnerable container targets on AWS.
 
 `Juice-shop:` https://hub.docker.com/r/bkimminich/juice-shop
 
@@ -40,10 +40,13 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 ## Initialize
 `terraform init`
 
-## Deploy DVWA
+## Deploy Vulnlab
 `terraform apply --auto-approve`
 
-## Destroy DVWA
+## Start Pentesting
+On your browser navigate to the http://<EC2_Public_IP> to start the tests.
+
+## Destroy Vulnlab
 `terraform destroy --auto-approve`
 
 # About the Terraform Script
