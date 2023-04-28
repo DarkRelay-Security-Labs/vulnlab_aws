@@ -34,8 +34,7 @@ Terraform script to deploy below vulnerable container targets on AWS.
 # Execution
 
 ## Download
-`git clone https://github.com/DarkRelayLabs/vulnlab_aws.git`
-`cd vulnlab_aws`
+`git clone https://github.com/DarkRelayLabs/vulnlab_aws.git && cd vulnlab_aws`
 
 ## Initialize
 `terraform init`
