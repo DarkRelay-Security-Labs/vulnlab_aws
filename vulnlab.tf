@@ -4,41 +4,58 @@ provider "aws" {
   region     = "us-east-1"
 }
 
-
 data "template_file" "install_script" {
   template = "${file("vulnlab.sh")}"
+}
+
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
 }
 
 resource "aws_security_group" "vulnlab_sg" {
   name_prefix = "vulnlab_sg"
   description = "Security group for the vulnlab instance"
-      
+  
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
   ingress {
     from_port   = 81
     to_port     = 81
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
   ingress {
     from_port   = 82
     to_port     = 82
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
   ingress {
     from_port   = 83
     to_port     = 83
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+  
+    ingress {
+    from_port   = 84
+    to_port     = 84
+    protocol    = "tcp"
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+    
+    ingress {
+    from_port   = 85
+    to_port     = 85
+    protocol    = "tcp"
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
 
   ingress {
