@@ -8,6 +8,10 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 `XVWA:` https://hub.docker.com/r/bitnetsecdave/xvwa
 
 `Pentest in Docker:` https://github.com/Swordfish-Security/Pentest-In-Docker
+
+`Vulnerable Graphql:` https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
+
+`Vulnerable API:` https://github.com/erev0s/VAmPI
  
 # Pre-requisites
 Terraform installed and in the current $PATH
