@@ -25,7 +25,9 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 
 `secret_key = "ADD YOUR KEY HERE"`
 
-## Create key pairs with name vulnlab. Run the below command in your Kali linux terminal.
+## Create key pairs with name vulnlab. 
+
+### Run the below command in your Kali linux terminal.
 
 `ssh-keygen -q -t rsa -N '' -f ~/.ssh/vulnlab <<<y >/dev/null 2>&1`
 
