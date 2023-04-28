@@ -25,9 +25,9 @@ Terraform script to deploy vulnerable targets on AWS. The script deploys the bel
 
 `secret_key = "ADD YOUR KEY HERE"`
 
-## Create key pairs with name dvwa_key
+## Create key pairs with name vulnlab. Run the below command in your Kali linux terminal.
 
-`Create EC2 Key Pair:` https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#having-ec2-create-your-key-pair
+`ssh-keygen -q -t rsa -N '' -f ~/.ssh/vulnlab <<<y >/dev/null 2>&1`
 
 # Execution
 Copy the scripts to the home folder on your Linux distro and run the below commands to deploy or destroy the AWS services created.
