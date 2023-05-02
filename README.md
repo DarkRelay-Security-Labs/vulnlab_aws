@@ -12,6 +12,8 @@ Terraform script to deploy below vulnerable container targets on AWS.
 `Vulnerable Graphql:` https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 
 `Vulnerable API:` https://github.com/erev0s/VAmPI
+
+`Vulnerable SMB:` https://hub.docker.com/r/shaccuri/vulnerablesmb
  
 # Pre-requisites
 
@@ -53,7 +55,9 @@ Configures one EC2 micro instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 80,81,82,83,85 and 85 to allow traffic from your IP only.
+Configures ingress rules for ports 80,81,83,84,85 and 445 to allow traffic from your IP only.
+
+Compromise DVWA to access Port 82 and reach XVWA (this is for pivoting scenarios).
 
 Configures ingress rules for port 22 to allow traffic from any IP.
 
