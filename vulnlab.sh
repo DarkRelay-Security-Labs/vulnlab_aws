@@ -16,7 +16,7 @@ sudo docker network create local-network
 sudo docker pull vulnerables/web-dvwa
 sudo docker run --name web-dvwa -d -p 81:80 --restart always --network local-network vulnerables/web-dvwa
 
-# Configure XVWA https://github.com/s4n7h0/xvwa 
+# Configure XVWA https://github.com/s4n7h0/xvwa accessible only to dvwa
 sudo docker pull bitnetsecdave/xvwa
 sudo docker run --name xvwa -d -p 127.0.0.1:82:80 --restart always --network local-network --add-host xvwa:127.0.0.1 bitnetsecdave/xvwa
 
@@ -32,11 +32,6 @@ sudo docker run --name dvga -d --rm -p 84:5013 frost19k/dvga
 sudo docker pull erev0s/vampi
 sudo docker run --name vampi -d --rm -p 85:5000 erev0s/vampi
 
-##*******----------Backup-------------------
-#Configure DVWA https://github.com/digininja/DVWA
-#sudo docker pull vulnerables/web-dvwa
-#sudo docker run --name web-dvwa -d -p 81:80 --restart always vulnerables/web-dvwa
-
-#Configure XVWA https://github.com/s4n7h0/xvwa 
-#sudo docker pull bitnetsecdave/xvwa
-#sudo docker run --name xvwa -d -p 82:80 --restart always bitnetsecdave/xvwa
+#Configure https://hub.docker.com/r/shaccuri/vulnerablesmb
+sudo docker pull shaccuri/vulnerablesmb
+sudo docker run –name smbvuln -it -d -p 445:445 shaccuri/vulnerablesmb
