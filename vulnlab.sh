@@ -34,4 +34,4 @@ sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 
 #Configure https://hub.docker.com/r/shaccuri/vulnerablesmb
 sudo docker pull shaccuri/vulnerablesmb
-sudo docker run --name smbvuln -d --restart always -p 445:445 shaccuri/vulnerablesmb
+sudo docker run --name vulnerablesmb -d --restart always -p 445:445 shaccuri/vulnerablesmb
