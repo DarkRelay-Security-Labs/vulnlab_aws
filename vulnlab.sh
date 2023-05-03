@@ -7,7 +7,7 @@ sudo systemctl start docker
 
 #Configure Juice-shop https://github.com/juice-shop/juice-shop
 sudo docker pull bkimminich/juice-shop
-sudo docker run -d -p 80:3000 bkimminich/juice-shop
+sudo docker run -d --restart always -p 80:3000 bkimminich/juice-shop
 
 # Create a user-defined network
 sudo docker network create local-network
@@ -22,16 +22,16 @@ sudo docker run --name xvwa -d -p 127.0.0.1:82:80 --restart always --network loc
 
 #Configure Vulnerable Container https://github.com/Swordfish-Security/Pentest-In-Docker
 sudo docker pull dvyakimov/vuln-wheezy
-sudo docker run --name vulnwheezy -d -v /var/run/docker.sock:/var/run/docker.sock --rm -it -p 83:80 dvyakimov/vuln-wheezy
+sudo docker run --name vulnwheezy -d -v /var/run/docker.sock:/var/run/docker.sock --restart always -p 83:80 dvyakimov/vuln-wheezy
 
 #Configure Vulnerable Graphql https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 sudo docker pull frost19k/dvga
-sudo docker run --name dvga -d --rm -p 84:5013 frost19k/dvga
+sudo docker run --name dvga -d --restart always -p 84:5013 frost19k/dvga
 
 #Configure Vampi https://hub.docker.com/r/erev0s/vampi
 sudo docker pull erev0s/vampi
-sudo docker run --name vampi -d --rm -p 85:5000 erev0s/vampi
+sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 
 #Configure https://hub.docker.com/r/shaccuri/vulnerablesmb
 sudo docker pull shaccuri/vulnerablesmb
-sudo docker run –name smbvuln -it -d -p 445:445 shaccuri/vulnerablesmb
+sudo docker run --name smbvuln -d --restart always -p 445:445 shaccuri/vulnerablesmb
