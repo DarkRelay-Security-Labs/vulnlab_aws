@@ -4,6 +4,7 @@ sudo apt-get install docker -y
 sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
+sudo apt-get install netcat
 
 #Configure Juice-shop https://github.com/juice-shop/juice-shop
 sudo docker pull bkimminich/juice-shop
@@ -39,7 +40,3 @@ sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 #Configure https://hub.docker.com/r/shaccuri/vulnerablesmb
 sudo docker pull shaccuri/vulnerablesmb
 sudo docker run --name vulnerablesmb -d --restart always -p 445:445 shaccuri/vulnerablesmb
-
-#Ceate Kali Attacker
-sudo docker pull kalilinux/kali-rolling
-sudo docker run --name kali -d --restart always -p 2222:22 kalilinux/kali-rolling
