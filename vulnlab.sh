@@ -5,6 +5,7 @@ sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo apt-get install netcat
+sudo apt install net-tools
 
 #Configure Juice-shop https://github.com/juice-shop/juice-shop
 sudo docker pull bkimminich/juice-shop
@@ -37,6 +38,12 @@ sudo docker run --name dvga -d --restart always -p 84:5013 frost19k/dvga
 sudo docker pull erev0s/vampi
 sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 
-#Configure https://hub.docker.com/r/shaccuri/vulnerablesmb
-sudo docker pull shaccuri/vulnerablesmb
-sudo docker run --name vulnerablesmb -d --restart always -p 445:445 shaccuri/vulnerablesmb
+#Configure https://github.com/dperson/samba
+sudo docker pull dperson/samba
+sudo docker run --name samba -d --restart always -p 139:139 -p 445:445 -d dperson/samba -S -p \
+            -u "john;badpass" \
+            -u "bob;badpass" \
+            -s "public;/share" \
+            -s "users;/srv;yes;no;no;john,bob" \
+            -s "john private share;/john;yes;no;no;john" \
+            -s "bob private share;/bob;yes;no;no;bob"
