@@ -16,9 +16,13 @@ sudo docker network create local-network
 sudo docker pull vulnerables/web-dvwa
 sudo docker run --name dvwa -d -p 81:80 --restart always --network local-network vulnerables/web-dvwa
 
+# Configure XVWA https://github.com/s4n7h0/xvwa accessible only to dvwa
+sudo docker pull bitnetsecdave/xvwa
+sudo docker run --name xvwalocal -d -p 127.0.0.1:8082:80 --restart always --network local-network --add-host dvwa:127.0.0.1 bitnetsecdave/xvwa
+
 # Configure XVWA https://github.com/s4n7h0/xvwa
 sudo docker pull bitnetsecdave/xvwa
-sudo docker run --name xvwa -d -p 82:80 --restart always --network local-network bitnetsecdave/xvwa
+sudo docker run --name xvwa -d -p 82:80 --restart always bitnetsecdave/xvwa
 
 #Configure Vulnerable Container https://github.com/Swordfish-Security/Pentest-In-Docker
 sudo docker pull dvyakimov/vuln-wheezy
@@ -36,6 +40,6 @@ sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 sudo docker pull shaccuri/vulnerablesmb
 sudo docker run --name vulnerablesmb -d --restart always -p 445:445 shaccuri/vulnerablesmb
 
-# Configure XVWA https://github.com/s4n7h0/xvwa accessible only to dvwa
-sudo docker pull bitnetsecdave/xvwa
-sudo docker run --name xvwalocal -d -p 127.0.0.1:8082:80 --restart always --network local-network --add-host dvwa:127.0.0.1 bitnetsecdave/xvwa
+#Ceate Kali Attacker
+sudo docker pull kalilinux/kali-rolling
+sudo docker run --name kali -d --restart always -p 2222:22 kalilinux/kali-rolling
