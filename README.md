@@ -13,7 +13,7 @@ Terraform script to deploy below vulnerable container targets on AWS.
 
 `Vulnerable API:` https://github.com/erev0s/VAmPI
 
-`Vulnerable SMB:` https://hub.docker.com/r/shaccuri/vulnerablesmb
+`Vulnerable SMB:` https://github.com/dperson/samba
  
 # Pre-requisites
 
@@ -55,9 +55,9 @@ Configures one EC2 micro instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 80,81,83,84,85 and 445 to allow traffic from your IP only.
+Configures ingress rules for ports 80,81,83,84,85, 139 and 445 to allow traffic from your IP only.
 
-Compromise DVWA to access Port 82 and reach XVWA (this is for pivoting scenarios).
+Compromise DVWA to access Port 8082 and reach XVWA (this is for pivoting scenarios).
 
 Configures ingress rules for port 22 to allow traffic from any IP.
 
