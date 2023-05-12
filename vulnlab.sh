@@ -45,5 +45,5 @@ sudo docker run --name samba -d --restart always -p 139:139 -p 445:445 -d dperso
             -u "bob;badpass" \
             -s "public;/share" \
             -s "users;/srv;yes;no;no;john,bob" \
-            -s "john private share;/john;yes;no;no;john" \
-            -s "bob private share;/bob;yes;no;no;bob"
+            -s "johnprivate;/john;yes;no;no;john" \
+            -s "bobprivate;/bob;yes;no;no;bob"
