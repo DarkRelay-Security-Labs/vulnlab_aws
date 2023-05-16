@@ -98,7 +98,7 @@ resource "aws_security_group" "vulnlab_sg" {
   
   resource "aws_instance" "vulndocker" {
   ami           = "ami-007855ac798b5175e" # Specify the AMI ID for your desired Ubuntu version.
-  instance_type = "t2.medium"             # Specify the instance type.
+  instance_type = "t2.small"             # Specify the instance type.
   key_name      = "vulnlab"        # Specify the name of the key pair you want to use to connect to the instance.
 
   vpc_security_group_ids = [aws_security_group.vulnlab_sg.id]
