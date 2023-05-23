@@ -124,6 +124,7 @@ resource "aws_security_group" "vulnlab_sg" {
 
   vpc_security_group_ids = [aws_security_group.vulnlab_sg.id]
   subnet_id              = aws_subnet.vuln_subnet.id  # Specify the subnet ID
+  associate_public_ip_address = true  # Assign a public IP address to the instance
   
   # Configure the user data to install vulnlab on the instance
   user_data = "${data.template_file.install_script.rendered}"
