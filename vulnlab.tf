@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = "IAMAKEY"
-  secret_key = "IAMASECRETKEY"
+  access_key = "test"
+  secret_key = "test"
   region     = "us-east-1"
 }
 
@@ -17,9 +17,30 @@ resource "aws_key_pair" "vulnlab" {
   public_key = file("~/.ssh/vulnlab.pub")
 }
 
+resource "aws_vpc" "vuln_vpc" {
+  cidr_block = "10.0.0.0/16"  # Replace with your desired VPC CIDR block
+
+  tags = {
+    Name = "vuln-vpc"
+  }
+}
+
+resource "aws_subnet" "vuln_subnet" {
+  vpc_id            = aws_vpc.vuln_vpc.id
+  cidr_block        = "10.0.0.0/24"  # Replace with your desired subnet CIDR block
+  availability_zone = "us-east-1a"   # Replace with your desired availability zone
+
+  tags = {
+    Name = "vuln-subnet"
+  }
+}
+
+
 resource "aws_security_group" "vulnlab_sg" {
   name_prefix = "vulnlab_sg"
   description = "Security group for the vulnlab instance"
+  
+  vpc_id = aws_vpc.vuln_vpc.id  # Associate the security group with the VPC
   
   ingress {
     from_port   = 80
@@ -98,11 +119,11 @@ resource "aws_security_group" "vulnlab_sg" {
   
   resource "aws_instance" "vulndocker" {
   ami           = "ami-007855ac798b5175e" # Specify the AMI ID for your desired Ubuntu version.
-  instance_type = "t2.small"             # Specify the instance type.
+  instance_type = "t2.medium"             # Specify the instance type.
   key_name      = "vulnlab"        # Specify the name of the key pair you want to use to connect to the instance.
 
   vpc_security_group_ids = [aws_security_group.vulnlab_sg.id]
-  
+  subnet_id              = aws_subnet.vuln_subnet.id  # Specify the subnet ID
   
   # Configure the user data to install vulnlab on the instance
   user_data = "${data.template_file.install_script.rendered}"
