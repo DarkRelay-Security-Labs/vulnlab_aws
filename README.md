@@ -18,6 +18,8 @@ Terraform script to deploy below vulnerable container targets on AWS.
 `Vulnerable FTP:` vsftpd-2.3.4-vulnerable
 
 `Vulnerable SMTP:` https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247
+
+`SNMP Enumeration:` ehazlett/snmpd:latest
  
 # Pre-requisites
 
