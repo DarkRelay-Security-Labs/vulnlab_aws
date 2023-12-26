@@ -56,6 +56,10 @@ sudo docker run --name vsftpd -d --restart always -p 21:21 -p 6200:6200 uexpl0it
 sudo docker pull vulhub/opensmtpd:6.6.1p1
 sudo docker run --name smtpd -d --restart always -p 25:25 vulhub/opensmtpd:6.6.1p1
 
-#Configure vulnerable smtp
+#Configure snmp
 sudo docker pull ehazlett/snmpd:latest
 sudo docker run --name snmpd -d --restart always -p 161:161 -p 199:199 ehazlett/snmpd:latest
+
+#Configure nfs
+sudo docker pull itsthenetwork/nfs-server-alpine
+sudo docker run --name nfs -d --restart always --privileged -v /tmp:/nfsshare -e SHARED_DIRECTORY=/nfsshare -p 2049:2049 itsthenetwork/nfs-server-alpine:latest
