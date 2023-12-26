@@ -41,7 +41,21 @@ resource "aws_security_group" "vulnlab_sg" {
   description = "Security group for the vulnlab instance"
   
   vpc_id = aws_vpc.vuln_vpc.id  # Associate the security group with the VPC
-  
+
+  ingress {
+    from_port   = 21
+    to_port     = 21
+    protocol    = "tcp"
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
+  ingress {
+    from_port   = 25
+    to_port     = 25
+    protocol    = "tcp"
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -103,6 +117,13 @@ resource "aws_security_group" "vulnlab_sg" {
     to_port     = 445
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
+  ingress {
+    from_port   = 6200
+    to_port     = 6200
+    protocol    = "tcp"
+     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
   egress {
