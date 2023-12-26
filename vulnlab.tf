@@ -134,6 +134,13 @@ resource "aws_security_group" "vulnlab_sg" {
   }
 
   ingress {
+    from_port   = 2049
+    to_port     = 2049
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
+  ingress {
     from_port   = 6200
     to_port     = 6200
     protocol    = "tcp"
