@@ -55,3 +55,7 @@ sudo docker run --name vsftpd -d --restart always -p 21:21 -p 6200:6200 uexpl0it
 #Configure vulnerable smtp
 sudo docker pull vulhub/opensmtpd:6.6.1p1
 sudo docker run --name smtpd -d --restart always -p 25:25 vulhub/opensmtpd:6.6.1p1
+
+#Configure vulnerable smtp
+sudo docker pull ehazlett/snmpd:latest
+sudo docker run --name snmpd -d --restart always -p 161:161 -p 199:199 ehazlett/snmpd:latest
