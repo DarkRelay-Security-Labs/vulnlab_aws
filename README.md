@@ -1,4 +1,4 @@
-# Vulnerable lab on AWS
+# Private Pentest Lab on AWS
 Terraform script to deploy below vulnerable container targets on AWS.
 
 `Juice-shop:` https://hub.docker.com/r/bkimminich/juice-shop
