@@ -63,7 +63,7 @@ Configures one EC2 micro instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 21,25,80,81,83,84,85,139,445 and 6200 to allow traffic from your IP only.
+Configures ingress rules for ports 21,25,80,81,83,84,85,111,139,445,161,199,2049,6200 to allow traffic from your IP only.
 
 Compromise DVWA to access Port 8082 and reach XVWA (this is for pivoting scenarios).
 
