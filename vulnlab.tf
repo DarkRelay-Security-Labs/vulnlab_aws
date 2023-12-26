@@ -84,14 +84,14 @@ resource "aws_security_group" "vulnlab_sg" {
      cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
-    ingress {
+  ingress {
     from_port   = 84
     to_port     = 84
     protocol    = "tcp"
      cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
     
-    ingress {
+  ingress {
     from_port   = 85
     to_port     = 85
     protocol    = "tcp"
@@ -105,16 +105,30 @@ resource "aws_security_group" "vulnlab_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   
-    ingress {
+  ingress {
     from_port   = 139
     to_port     = 139
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
   
-    ingress {
+  ingress {
     from_port   = 445
     to_port     = 445
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
+  ingress {
+    from_port   = 161
+    to_port     = 161
+    protocol    = "udp"
+    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
+
+  ingress {
+    from_port   = 199
+    to_port     = 199
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
