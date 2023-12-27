@@ -35,32 +35,18 @@ resource "aws_subnet" "vuln_subnet" {
   }
 }
 
-
 resource "aws_security_group" "vulnlab_sg" {
   name_prefix = "vulnlab_sg"
   description = "Security group for the vulnlab instance"
   
   vpc_id = aws_vpc.vuln_vpc.id  # Associate the security group with the VPC
 
-  ingress {
-    from_port   = 21
-    to_port     = 21
-    protocol    = "tcp"
-     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 25
-    to_port     = 25
-    protocol    = "tcp"
-     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
 
   ingress {
@@ -101,55 +87,6 @@ resource "aws_security_group" "vulnlab_sg" {
   ingress {
     from_port   = 85
     to_port     = 85
-    protocol    = "tcp"
-     cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 111
-    to_port     = 111
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-  
-  ingress {
-    from_port   = 139
-    to_port     = 139
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 161
-    to_port     = 161
-    protocol    = "udp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 199
-    to_port     = 199
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 445
-    to_port     = 445
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 2049
-    to_port     = 2049
-    protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
-  }
-
-  ingress {
-    from_port   = 6200
-    to_port     = 6200
     protocol    = "tcp"
      cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
