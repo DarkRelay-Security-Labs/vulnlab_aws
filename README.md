@@ -47,7 +47,7 @@ Terraform script to deploy below vulnerable container targets on AWS.
 `terraform destroy --auto-approve`
 
 # About the Terraform Script
-Configures one EC2 micro instance to host containers.
+Configures one EC2 t2.medium instance to host containers.
 
 Configures one security group.
 
