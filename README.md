@@ -7,8 +7,6 @@ Terraform script to deploy below vulnerable container targets on AWS.
 
 `XVWA:` https://hub.docker.com/r/bitnetsecdave/xvwa
 
-`Pentest in Docker:` https://github.com/Swordfish-Security/Pentest-In-Docker
-
 `Vulnerable Graphql:` https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 
 `Vulnerable API:` https://github.com/erev0s/VAmPI
@@ -53,7 +51,7 @@ Configures one EC2 micro instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 22,80,81,83,84, and 85 to allow traffic from your IP only.
+Configures ingress rules for ports 22,80,81,82,84, and 85 to allow traffic from your IP only.
 
 Compromise DVWA to access Port 8082 and reach XVWA (this is for pivoting scenarios).
 
