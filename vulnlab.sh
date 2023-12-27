@@ -58,7 +58,7 @@ sudo docker run --name smtpd -d --restart always -p 25:25 vulhub/opensmtpd:6.6.1
 
 #Configure snmp
 sudo docker pull ehazlett/snmpd:latest
-sudo docker run --name snmpd -d --restart always -p 161:161 -p 199:199 ehazlett/snmpd:latest
+sudo docker run --name snmpd -d --restart always -p 161:161/udp -p 199:199 ehazlett/snmpd:latest
 
 #Configure nfs
 sudo docker pull itsthenetwork/nfs-server-alpine
