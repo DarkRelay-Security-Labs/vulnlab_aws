@@ -153,6 +153,13 @@ resource "aws_security_group" "vulnlab_sg" {
     protocol    = "tcp"
      cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
   }
+
+  ingress {
+    from_port   = -1  # ICMP type -1 represents all ICMP traffic
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"]
+  }
   
   egress {
     from_port   = 0
