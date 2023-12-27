@@ -12,16 +12,6 @@ Terraform script to deploy below vulnerable container targets on AWS.
 `Vulnerable Graphql:` https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 
 `Vulnerable API:` https://github.com/erev0s/VAmPI
-
-`Vulnerable SMB:` https://github.com/dperson/samba
-
-`Vulnerable FTP:` vsftpd-2.3.4-vulnerable
-
-`Vulnerable SMTP:` https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247
-
-`SNMP Enumeration:` ehazlett/snmpd:latest
-
-`NFS Enumeration:` itsthenetwork/nfs-server-alpine
  
 # Pre-requisites
 
@@ -55,8 +45,6 @@ Terraform script to deploy below vulnerable container targets on AWS.
 ## Start Pentesting
 `Web`: http://<EC2_Public_IP>
 
-`Network`: nmap <EC2_Public_IP>
-
 ## Destroy Vulnlab
 `terraform destroy --auto-approve`
 
@@ -65,7 +53,7 @@ Configures one EC2 micro instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 21,25,80,81,83,84,85,111,139,445,161,199,2049,6200 to allow traffic from your IP only.
+Configures ingress rules for ports 22,80,81,83,84, and 85 to allow traffic from your IP only.
 
 Compromise DVWA to access Port 8082 and reach XVWA (this is for pivoting scenarios).
 
