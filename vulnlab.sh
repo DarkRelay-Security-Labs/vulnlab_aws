@@ -33,3 +33,33 @@ sudo docker run --name dvga -d --restart always -p 84:5013 frost19k/dvga
 #Configure Vampi https://hub.docker.com/r/erev0s/vampi
 sudo docker pull erev0s/vampi
 sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
+
+#Configure https://github.com/dperson/samba
+sudo docker pull dperson/samba
+sudo docker run --name samba -d --restart always -p 139:139 -p 445:445 -p 137:137/udp -p 138:138/udp dperson/samba -S -p \
+            -u "john;password" \
+            -u "bob;password" \
+            -s "public;/share" \
+            -s "users;/srv;yes;no;no;john,bob" \
+            -s "johnprivate;/john;yes;no;no;john" \
+            -s "bobprivate;/bob;yes;no;no;bob"
+
+#Configure vulnerable ftp
+sudo docker pull uexpl0it/vulnerable-packages:backdoored-vsftpd-2.3.4
+sudo docker run --name vsftpd -d --restart always -p 21:21 -p 6200:6200 uexpl0it/vulnerable-packages:backdoored-vsftpd-2.3.4
+
+#Configure vulnerable smtp
+sudo docker pull vulhub/opensmtpd:6.6.1p1
+sudo docker run --name smtpd -d --restart always -p 25:25 vulhub/opensmtpd:6.6.1p1
+
+#Configure snmp
+sudo docker pull ehazlett/snmpd:latest
+sudo docker run --name snmpd -d --restart always -p 161:161/udp -p 199:199 ehazlett/snmpd:latest
+
+#Configure nfs
+sudo docker pull itsthenetwork/nfs-server-alpine
+sudo docker run --name nfs -d --restart always --privileged -v /tmp:/nfsshare -e SHARED_DIRECTORY=/nfsshare -p 2049:2049 itsthenetwork/nfs-server-alpine:latest
+
+#Heartbleed
+sudo docker pull vulhub/openssl:1.0.1c-with-nginx
+sudo docker run -d --restart always --name heartbleed -p 443:443 -p 8080:80 -v /var/www/html:/var/www/html vulhub/openssl:1.0.1c-with-nginx
