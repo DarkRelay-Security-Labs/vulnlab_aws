@@ -7,9 +7,19 @@ Terraform script to deploy below vulnerable container targets on AWS.
 
 `XVWA:` https://hub.docker.com/r/bitnetsecdave/xvwa
 
-`Vulnerable Graphql:` https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
+`Vulnerable Graphql:` Damn-Vulnerable-GraphQL-Application
 
 `Vulnerable API:` https://github.com/erev0s/VAmPI
+
+`Vulnerable SMB:` https://github.com/dperson/samba
+
+`Vulnerable FTP:` vsftpd-2.3.4-vulnerable
+
+`Vulnerable SMTP:` https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247
+
+`SNMP Enumeration:` ehazlett/snmpd:latest
+
+`NFS Enumeration:` itsthenetwork/nfs-server-alpine
  
 # Pre-requisites
 
@@ -51,7 +61,7 @@ Configures one EC2 t2.medium instance to host containers.
 
 Configures one security group.
 
-Configures ingress rules for ports 22,80,81,82,84, and 85 to allow traffic from your IP only.
+Configures ingress rules for ports 22,25 80,81,82,84 etc. to allow traffic from your IP only.
 
 Compromise DVWA to access Port 8082 and reach XVWA (this is for pivoting scenarios).
 
