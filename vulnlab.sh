@@ -36,13 +36,13 @@ sudo docker run --name vampi -d --restart always -p 85:5000 erev0s/vampi
 
 #Configure https://github.com/dperson/samba
 sudo docker pull dperson/samba
-sudo docker run --name samba -d --restart always -p 139:139 -p 445:445 -p 137:137/udp -p 138:138/udp dperson/samba -S -p \
-            -u "john;password" \
-            -u "bob;password" \
+sudo docker run --name samba -d --restart always -p 139:139 -p 445:445 -p 137:137/udp -p 138:138/udp dperson/samba -v /home/test/share:/share:r -S -p \
+            -u "john;password1" \
+            -u "bob;password2" \
             -s "public;/share" \
-            -s "users;/srv;yes;no;no;john,bob" \
-            -s "johnprivate;/john;yes;no;no;john" \
-            -s "bobprivate;/bob;yes;no;no;bob"
+            -s "servershare;/servershare;no;no;no;john,bob" \
+            -s "johnshare;/johnshare;yes;no;no;john" \
+            -s "bobshare;/bobshare;yes;no;no;bob"
 
 #Configure vulnerable ftp
 sudo docker pull uexpl0it/vulnerable-packages:backdoored-vsftpd-2.3.4
