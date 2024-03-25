@@ -53,7 +53,8 @@ Terraform script to deploy below vulnerable container targets on AWS.
 ## Start Pentesting
 `Web`: http://<EC2_Public_IP>
 
-`Network`: nmap <EC2_Public_IP>
+`Network`: Find targets using nmap 
+nmap <EC2_Public_IP>
 
 ## Destroy Vulnlab
 `terraform destroy --auto-approve`
