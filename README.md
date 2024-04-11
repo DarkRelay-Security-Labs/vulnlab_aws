@@ -76,6 +76,7 @@ Configures egress rule for all traffic outbound connections.
 Happy hunting!!
 
 ## Follow Us For More:
+[DarkRelay](https://www.darkrelay.com/blog)<br>
 [LinkedIn](https://linkedin.com/company/darkrelay)<br>
 [Twitter](https://twitter.com/darkrelaylabs)<br>
 [YouTube](https://www.youtube.com/channel/UCtnLa860lUkRhtmpYvbXlTw)<br>
